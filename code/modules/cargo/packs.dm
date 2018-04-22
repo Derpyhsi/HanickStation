@@ -1305,6 +1305,19 @@
 /datum/supply_pack/misc
 	group = "Miscellaneous Supplies"
 
+/datum/supply_pack/misc/cheapemags
+	name = "Cheap Crypto Sequencers Crate"
+	contraband = TRUE
+	cost = 700
+	contains = list(/obj/item/card/emag/cheap_emag,
+							/obj/item/card/emag/cheap_emag,
+							/obj/item/card/emag/cheap_emag,
+							/obj/item/card/emag/cheap_emag,
+							/obj/item/card/emag/cheap_emag,
+							/obj/item/card/emag/cheap_emag)
+	crate_name = "emag crate"
+
+
 /datum/supply_pack/misc/minerkit
 	name = "Shaft Miner Starter Kit"
 	cost = 2500

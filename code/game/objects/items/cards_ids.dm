@@ -66,6 +66,11 @@
 	origin_tech = "bluespace=4;magnets=4;syndicate=5"
 	prox_check = FALSE
 
+	/obj/item/card/emag/cheap_emag // This is a emag for grey tiders. It doesnt do anything yet currently.
+		name = "cryptographic sequencer"
+		desc = "It's a card with a magnetic strip attached to some circuitry. It seems cheaply made."
+		origin_tech = "magnets=1"
+
 /obj/item/card/emag/attack()
 	return
 
@@ -74,6 +79,22 @@
 	if(!proximity && prox_check)
 		return
 	A.emag_act(user)
+
+/obj/item/card/emag/cheap_emag/afterattack(atom/target, mob/user, proximity)
+	user.visible_message ("<span class='warning'>The [src.name] exploded! </span>")
+	if(QDELETED(src))
+		return
+	explode()
+
+/obj/item/card/emag/cheap_emag/proc/explode()
+	var/turf/location = get_turf(src)
+	explosion(location, 0, 0, 3)
+	qdel(src)
+
+
+
+
+
 
 /obj/item/card/id
 	name = "identification card"
